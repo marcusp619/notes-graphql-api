@@ -15,6 +15,11 @@ Install Dependencies.
 yarn install
 ```
 
+URL to Query
+```
+https://hfi519bvp7.execute-api.us-east-1.amazonaws.com/dev/notes
+```
+
  **create note Query for Postman**
 ```
     mutation {
