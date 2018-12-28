@@ -36,7 +36,7 @@ const schema = new GraphQLSchema({
       },
       viewNote: {
         args: {
-          tag: { type: new GraphQLNonNull(GraphQLString) },
+          id: { type: new GraphQLNonNull(GraphQLString) },
         },
         type: noteType,
         resolve: (parent, args) => viewNote(args.tag),
