@@ -13,7 +13,7 @@ const viewNote = require('./resolvers/view');
 const listNotes = require('./resolvers/list');
 const removeNote = require('./resolvers/remove');
 const filterNotes = require('./resolvers/filter');
-
+const filterDates = require('./resolvers/date');
 const noteType = new GraphQLObjectType({
   name: 'Note',
   fields: {
@@ -46,6 +46,13 @@ const schema = new GraphQLSchema({
         },
         type: new GraphQLList(noteType),
         resolve: (parent, args) => filterNotes(args.tag),
+      },
+      filterDates: {
+        args: {
+          addedAt: { type: new GraphQLNonNull(GraphQLString) },
+        },
+        type: new GraphQLList(noteType),
+        resolve: (parent, args) => filterDates(args.addedAt),
       },
     },
   }),
