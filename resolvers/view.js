@@ -3,14 +3,12 @@
 const AWS = require('aws-sdk');
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-module.exports = tag => {
+module.exports = id => {
   const params = {
     TableName: 'note-app-gql-table',
-    Key: {
-      tag: tag,
-      addedAt: "1545983568441"
-    },
+    Key: { id }
   };
+
   return dynamoDb
     .get(params)
     .promise()
